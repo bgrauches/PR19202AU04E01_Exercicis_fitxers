@@ -11,10 +11,37 @@ import java.util.ArrayList;
 
 public class P1 {
 	
+	//tenim llisat srings de entrada i que despres sortirá ordenat
 	static ArrayList<String> jocs = new ArrayList<String>(); 
-	int palabra;
-	int palabraComp;
-	int aux;
+	static ArrayList<String> llistaOrdenada = new ArrayList<String>(); 
+	
+	//Pillam paraules de les posicions 0 i 1 de l'array d'entrada
+	static String paraula0 = jocs.get(0);
+	static String paraula1 = jocs.get(1);
+	
+	//Feim array de les lletres que formen la paraula
+	static char[] charParaula0 = paraula0.toCharArray();
+	static char[] charParaula1 = paraula1.toCharArray();
+	
+	//Transformam a ASCII els caràcters de les posicions 0 de cada paraula, es plan es compararles
+	static int ascii1 = charParaula0[0];
+	static int ascii2 = charParaula1[0]; 
+	
+	//String on se guarda la paraula0 en cas de que sigui > a paraula1
+	static String paraulaAux;
+	
+	static char newChar1 = (char) ascii1;
+	static char newChar2 = (char) ascii2;
+
+	//Per cambiar les posicions depenent de si ascii es menor o major
+	public static void metodeGuay() {
+		if (ascii1 > ascii2) {
+			ascii1 = char1.se
+		}
+		else {
+		
+		}
+	}
 	
 	
 	//Metode per llegir arxiu 
@@ -42,16 +69,19 @@ public class P1 {
 	}
 	
 	//Metode per ordenar alfabèticament
-	public void ordenarAlf(int [] A) {
-		for (palabra = 0; palabra < jocs.size()-palabra-1; palabraComp++) {
-			for (palabraComp = 0; palabraComp<jocs.size()-palabra-1; palabraComp ++) {
-				if (jocs [palabraComp +1] <jocs [palabraComp]) {
-					aux = A [palabraComp+1];
-					jocs [palabraComp +1] = jocs [palabraComp];
-					jocs [palabraComp] = aux;
-				}
+	public void ordenarAlf(int [] jocs) {
+		int tam = jocs.length;
+		
+		//comprova array jocs
+		for (paraula0. = 0; paraula0 < tam - 1; ascii1++) {
+			
+			//comprova chars
+			for (ascii2 = 0; ascii2 < tam - ascii2 - 1; ascii2++) {
+				
 			}
 		}
+		
+			
 		
 	}
 	

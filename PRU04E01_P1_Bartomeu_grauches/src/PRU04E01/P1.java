@@ -1,12 +1,11 @@
 package PRU04E01;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class P1 {
@@ -37,6 +36,12 @@ public class P1 {
 
 	//Per cambiar les posicions depenent de si ascii es menor o major
 	public static void metodeGuay() {
+		
+		//FALTA QUE SE FIQUIN ESLS STRINGS ORDENATS A LLISTAORDENADA
+		
+		
+		
+		
 		if (ascii2 < ascii1) {
 			//guardam paraula0 a auxiliar pq no deletei
 			paraulaAux = paraula0;
@@ -57,24 +62,20 @@ public class P1 {
 	
 	//Metode per llegir arxiu 
 	public static void llegirFile() throws IOException{
-	
+		String filePath = "C:\\Users\\bgrauches\\Desktop\\Videojoggos.txt";
+		
 		try {
-			FileInputStream inputStr = new FileInputStream("C:\\Users\\bgrauches\\Desktop\\Videojoggos.txt");
-			InputStreamReader inputRead = new InputStreamReader(inputStr);
-			BufferedReader llegir = new BufferedReader(inputRead);
-			String linia = llegir.readLine();
+			BufferedReader bf = new BufferedReader(new FileReader(filePath));
+			String linia = "";
 			while (linia != null) {
-				jocs.add(llegir.readLine());
 				System.out.println(linia);
-				linia = llegir.readLine();
+				linia = bf.readLine();
 			}
-			llegir.close();
-		} 
-		catch (FileNotFoundException a) {
+			bf.close();
+		} catch (FileNotFoundException e) {
 			System.out.println("No es troba el fitxer Videojoggos.txt");
-		}
-		catch (IOException b) { 
-			System.out.println("No es pot llegir Videojoggos.txt");
+		} catch (IOException e) {
+			System.out.println("No se pot llegir Videojoggos.txt");
 		}
 	}
 	
@@ -99,22 +100,16 @@ public class P1 {
 	
 	//Metode per escriure les paraules ordenades a un altre arxiu
 	public static void escriureFie() throws IOException{
-		
+	
 		try {
-			FileOutputStream outpStr = new FileOutputStream("C:\\Users\\bgrauches\\Desktop\\LlistaOrdenada.txt");
-			OutputStreamWriter outWrite = new OutputStreamWriter(outpStr); 
-			
-			for(int i = 0 ; i < jocs.size(); i++ ) {
-				outWrite.write(llistaOrdenada.get(i)+"\n");
+			BufferedWriter bw = new BufferedWriter (new FileWriter("C:\\Users\\bgrauches\\Desktop\\LlistaOrdenada.txt"));
+			for (int i = 0; i < llistaOrdenada.size() ; i++) {
+				System.out.println(llistaOrdenada.size());
+				System.out.println(llistaOrdenada.get(i));
+				bw.write(llistaOrdenada.get(i));
 			}
-			outWrite.close();
-		}
-		catch (FileNotFoundException a) {
-			System.out.println("No es troba el fitxer LlistaOrdenada.txt");
-		}
-		
-		catch(IOException e) { 
-			System.out.println("No puc escriure en LlistaOrdenada.txt");
+		} catch (IOException ioe) {
+			System.out.println("No s'ha pogut escriure al fitxer llistaOrdenada.txt");
 		}
 	}
 			
